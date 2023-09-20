@@ -14,8 +14,11 @@ body {
     );
   background-repeat: repeat-x, repeat-x, repeat-x, no-repeat;
   background-attachment: scroll, scroll, scroll, fixed;
-  background-position: var(--scrollX) bottom, calc(var(--scrollX) / 2) bottom,
-    calc(var(--scrollX) / 3) calc(100% - 100px), top center;
+  background-position:
+    var(--scrollX) bottom,
+    calc(var(--scrollX) / 2) bottom,
+    calc(var(--scrollX) / 3) calc(100% - 100px),
+    top center;
   background-size: 32px, auto, auto, auto;
   image-rendering: optimizeSpeed;
   image-rendering: -moz-crisp-edges;
@@ -25,7 +28,9 @@ body {
   image-rendering: optimize-contrast;
   -ms-interpolation-mode: nearest-neighbor;
   transform: translateX(var(--scrollX));
-  transition: transform 333ms ease-in, background-position 333ms ease-in;
+  transition:
+    transform 333ms ease-in,
+    background-position 333ms ease-in;
   user-select: none;
   overscroll-behavior-y: contain;
 }
@@ -328,9 +333,15 @@ section:not(#editor) .e {
   filter: brightness(1);
   font-size: 0.5rem;
   color: #000;
-  text-shadow: 1px 1px var(--shadow), -1px -1px var(--shadow),
-    1px -1px var(--shadow), -1px 1px var(--shadow), 1px 0 var(--shadow),
-    -1px 0 var(--shadow), 0 -1px var(--shadow), 0 1px var(--shadow);
+  text-shadow:
+    1px 1px var(--shadow),
+    -1px -1px var(--shadow),
+    1px -1px var(--shadow),
+    -1px 1px var(--shadow),
+    1px 0 var(--shadow),
+    -1px 0 var(--shadow),
+    0 -1px var(--shadow),
+    0 1px var(--shadow);
 }
 
 body.walking[data-s="title"]::after,
@@ -379,8 +390,15 @@ body.walking[data-s="menu"]::after {
   font-weight: bold;
   font-size: 3rem;
   text-align: center;
-  text-shadow: 2px 0 #fff, -2px 0 #fff, 0 2px #fff, 0 -2px #fff, 1px 1px #fff,
-    -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
+  text-shadow:
+    2px 0 #fff,
+    -2px 0 #fff,
+    0 2px #fff,
+    0 -2px #fff,
+    1px 1px #fff,
+    -1px -1px #fff,
+    1px -1px #fff,
+    -1px 1px #fff;
   transform-origin: center;
   opacity: 0.3;
   pointer-events: none;
@@ -429,7 +447,9 @@ body:not(.attacking):not(.gameover)
   .tower.current
   + .tower
   .tower-floor:not(.destroying):focus-visible {
-  box-shadow: 0 0 22px #fff inset, 0 0 22px #fff inset;
+  box-shadow:
+    0 0 22px #fff inset,
+    0 0 22px #fff inset;
   outline: 1px solid #fff;
 }
 body:not(.gameover)
@@ -471,9 +491,19 @@ dialog .title,
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-weight: bold;
   color: #000;
-  text-shadow: 4px 0 #fff, -4px 0 #fff, 0 4px #fff, 0 -4px #fff, 3px 0 #fff,
-    -3px 0 #fff, 0 3px #fff, 0 -3px #fff, 2px 2px #fff, -2px -2px #fff,
-    2px -2px #fff, -2px 2px #fff;
+  text-shadow:
+    4px 0 #fff,
+    -4px 0 #fff,
+    0 4px #fff,
+    0 -4px #fff,
+    3px 0 #fff,
+    -3px 0 #fff,
+    0 3px #fff,
+    0 -3px #fff,
+    2px 2px #fff,
+    -2px -2px #fff,
+    2px -2px #fff,
+    -2px 2px #fff;
 }
 
 #gameOverDialog .title {
@@ -529,7 +559,8 @@ section,
   flex-direction: column;
 }
 
-#gameOverDialog button, #endLevelDialog button {
+#gameOverDialog button,
+#endLevelDialog button {
   --init-y: 100vh;
   transform: translateY(var(--init-y));
   animation: gameOverLetter 800ms ease-in 1;

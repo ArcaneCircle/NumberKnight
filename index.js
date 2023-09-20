@@ -9,13 +9,13 @@
 
   for (let tuto of d.querySelectorAll("[data-t]")) {
     selectors.push(
-      `body[data-t="${tuto.dataset.t}"] aside[data-t="${tuto.dataset.t}"]`
+      `body[data-t="${tuto.dataset.t}"] aside[data-t="${tuto.dataset.t}"]`,
     );
   }
 
   styleSheet.insertRule(
     `${selectors.join(",")}{display:block;}`,
-    styleSheet.cssRules.length
+    styleSheet.cssRules.length,
   );
 
   let isCustomLevel = false;
@@ -103,7 +103,7 @@
     const q = t(i, n);
     return (
       Math.sin(
-        i * 0.001 * Math.sin(0.009 * i + Math.sin(i / 200)) + Math.sin(i / 100)
+        i * 0.001 * Math.sin(0.009 * i + Math.sin(i / 200)) + Math.sin(i / 100),
       ) *
       q *
       q
@@ -195,7 +195,7 @@
 
       backgroundMusicOscillator.frequency.setValueAtTime(
         340 * 1.06 ** (13 - note),
-        i * speedStart
+        i * speedStart,
       );
 
       backgroundMusicOscillator.stop(i * speedStart + speedEnd);
@@ -372,7 +372,8 @@
         hit.className = `hit${isPotion ? " drink" : ""}`;
         hit.style.setProperty(
           "--rotate",
-          [90, 180, 270, 0][Math.floor(value * Math.random() * 100) % 4] + "deg"
+          [90, 180, 270, 0][Math.floor(value * Math.random() * 100) % 4] +
+            "deg",
         );
 
         const multipler = getMultipler(element, floor.dataset.sign);
@@ -410,7 +411,7 @@
                     "-": playerValue - modifierValue,
                     x: playerValue * modifierValue,
                     "/": playerValue / modifierValue,
-                  }[floor.dataset.sign]
+                  }[floor.dataset.sign],
                 );
               } else {
                 playerValue += value * (floor.classList.contains("s") ? -1 : 1);
@@ -465,7 +466,7 @@
                       gameOver();
                     }
                   },
-                  { once: true }
+                  { once: true },
                 );
                 playerDom.style.removeProperty("transform");
               } else {
@@ -498,7 +499,7 @@
                     if (!isCustomLevel) {
                       localStorage.setItem(
                         "number-knight-last-level",
-                        Math.max(lastLevel, currentLevelIndex + 1)
+                        Math.max(lastLevel, currentLevelIndex + 1),
                       );
                     }
 
@@ -508,7 +509,7 @@
                       (e) => {
                         e.target.remove();
                       },
-                      { once: true }
+                      { once: true },
                     );
                     b.classList.add("walking");
                     floor.querySelector(".floor-value").style.visibility =
@@ -520,7 +521,7 @@
                     endLevelDialog.classList.toggle("end", isGameEnd);
                     endLevelDialog.classList.toggle(
                       "hideEndMessage",
-                      levelsToUse.length < 2
+                      levelsToUse.length < 2,
                     );
                     endLevelDialog.showModal();
                   }, 500);
@@ -535,12 +536,12 @@
                     "--scrollX",
                     `-${
                       192 * c.querySelectorAll(".tower-floor:empty").length
-                    }px`
+                    }px`,
                   );
                 }
               }
             },
-            multipler === 1 ? 0 : 200
+            multipler === 1 ? 0 : 200,
           );
         });
 
@@ -551,7 +552,7 @@
           playerDom.append(hitMultipler);
         }
       },
-      { once: true }
+      { once: true },
     );
 
     b.classList.add("attacking");
@@ -583,7 +584,7 @@
           : null;
         const value = Number.parseInt(
           sign ? floorString.substring(1) : floorString,
-          10
+          10,
         );
 
         const stringValue = String(value);
@@ -635,7 +636,7 @@
         floorValue = floor.value;
 
         ["e", "sign", "value"].forEach(
-          (prop) => prop in floor && (towerFloor.dataset[prop] = floor[prop])
+          (prop) => prop in floor && (towerFloor.dataset[prop] = floor[prop]),
         );
 
         if (!isFirstTower) {
@@ -837,7 +838,7 @@
     if (domNode.classList.contains("value")) {
       domNode.textContent = Math.max(
         1,
-        Math.min(999999, Number(domNode.textContent))
+        Math.min(999999, Number(domNode.textContent)),
       );
     } else if (domNode.className === "sign") {
       const newSign =
@@ -903,7 +904,7 @@
       items,
       datasetProp,
       domToUpdateClassname,
-      baseClassname
+      baseClassname,
     ) => {
       if (e.target.classList.contains(classNameToHave)) {
         const nextItem =
@@ -923,7 +924,7 @@
       ["b", "s", "w", "m"],
       "type",
       e.target.parentNode,
-      "tower-floor"
+      "tower-floor",
     );
 
     if (!e.target.classList.contains("ghost")) {
