@@ -6,13 +6,10 @@ Tower: https://blackspirestudio.itch.io/medieval-pixel-art-asset-free
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Number Knight</title>
-    <link href="./favicon.png" rel="icon shortcut" />
     <link href="./style.css" rel="stylesheet" />
     <style id="s"></style>
   </head>
   <body data-s="title">
-    <button type="button" id="soundButton"></button>
     <section id="title">
       <dialog id="titleDialog">
         <form method="dialog">
@@ -21,9 +18,11 @@ Tower: https://blackspirestudio.itch.io/medieval-pixel-art-asset-free
           <button class="button" value="no-sound">
             Play <small>without sound</small>
           </button>
+<!--
           <button class="button" value="editor">
             <small>Level editor</small>
           </button>
+          -->
         </form>
       </dialog>
     </section>
@@ -151,7 +150,7 @@ Tower: https://blackspirestudio.itch.io/medieval-pixel-art-asset-free
       </dialog>
       <dialog id="endLevelDialog">
         <form method="dialog">
-          <p class="title">Congrats!</p>
+          <p class="title">Victory!</p>
           <p id="gameEndMessage" class="split">
             You've finished all the levels, you're the best!
           </p>
@@ -205,6 +204,6 @@ Tower: https://blackspirestudio.itch.io/medieval-pixel-art-asset-free
       </div>
     </section>
 
-    <script src="./index.js"></script>
+    <script src="./index.js" type="module"></script>
   </body>
 </html>

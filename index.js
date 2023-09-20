@@ -146,8 +146,6 @@
 
     soundsEnabled = newValue;
 
-    soundButton.classList.toggle("on", soundsEnabled);
-
     if (soundsEnabled) {
       playBackgroundMusic();
       return;
@@ -157,7 +155,6 @@
       oscillator.stop();
     });
   };
-  soundButton.onclick = () => toggleSound();
 
   const backgroundMusicOscillators = [];
 

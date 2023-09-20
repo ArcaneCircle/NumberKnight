@@ -1,5 +1,4 @@
 import fs from "fs";
-import { execSync } from "child_process";
 import { minify } from "minify";
 import { Packer } from "roadroller";
 import { zip, COMPRESSION_LEVEL } from "zip-a-folder";
@@ -7,7 +6,7 @@ import { zip, COMPRESSION_LEVEL } from "zip-a-folder";
 (async () => {
   console.log("Remove previous entry files...");
   fs.rmSync("./entry", { recursive: true, force: true });
-  fs.rmSync("./entry.zip", { force: true });
+  fs.rmSync("./entry.xdc", { force: true });
 
   console.log("Get project files content...");
 
@@ -87,7 +86,7 @@ import { zip, COMPRESSION_LEVEL } from "zip-a-folder";
 
   const packedCode = packer.makeDecoder();
 
-  console.log("Write entry files...");
+  console.log("Write Webxdc files...");
 
   fs.mkdirSync("./entry");
   fs.cpSync("./front.svg", "./entry/f.svg");
@@ -100,31 +99,22 @@ import { zip, COMPRESSION_LEVEL } from "zip-a-folder";
   );
 
   console.log("Zip entry folder...");
-  await zip("./entry", "./entry.zip", { compression: COMPRESSION_LEVEL.high });
-
-  console.log("Compress zip...");
-  try {
-    await execSync("ect.exe -9 -zip ./entry.zip", { env: process.env });
-  } catch (e) {
-    console.warn(
-      "⚠ Cannot compress zip, please be sure ect.exe is installed and available from global scope"
-    );
-  }
+  await zip("./entry", "./entry.xdc", { compression: COMPRESSION_LEVEL.high });
 
   console.log("Get entry size...");
-  const { size } = fs.statSync("./entry.zip");
+  const { size } = fs.statSync("./entry.xdc");
 
   console.log("Entry size: " + size + " bytes");
 
-  const JS13K_LIMIT_SIZE = 13312;
+  const WEBXDC_LIMIT_SIZE = 655360;
 
-  if (size > JS13K_LIMIT_SIZE) {
-    console.error("❌ File is " + (size - JS13K_LIMIT_SIZE) + "bytes too big!");
+  if (size > WEBXDC_LIMIT_SIZE) {
+    console.error("❌ File is " + (size - WEBXDC_LIMIT_SIZE) + "bytes too big!");
   } else {
-    const percent = Math.round(((size * 100) / JS13K_LIMIT_SIZE) * 100) / 100;
+    const percent = Math.round(((size * 100) / WEBXDC_LIMIT_SIZE) * 100) / 100;
     console.log("✅ All good! (" + percent + "% of total budget)");
   }
 
   console.log("");
-  console.log("Entry generated");
+  console.log("Webxdc generated");
 })();
