@@ -1,3 +1,5 @@
+import "./style.css";
+
 (() => {
   const d = document;
   const b = d.body;

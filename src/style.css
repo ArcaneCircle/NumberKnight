@@ -6,7 +6,8 @@ body {
   min-width: 100dvw;
   min-height: 100vh;
   min-height: 100dvh;
-  background-image: url(img/ground.png), url(img/front.svg), url(img/back.svg),
+  background-image: url(/img/ground.png), url(/img/front.svg),
+    url(/img/back.svg),
     radial-gradient(
       circle at top center,
       rgb(198 239 251) 0%,
@@ -44,7 +45,7 @@ body[data-s="menu"]::after,
 body:not(.walking)
   section:not(#editor)
   .tower-floor:not(.destroying)[data-e]::after {
-  background-image: url(img/sprites.png);
+  background-image: url(/img/sprites.png);
 }
 
 #levelList {
@@ -78,7 +79,7 @@ body:not(.walking)
 .tower-floor {
   width: 144px;
   position: relative;
-  background-image: url(img/tower.png);
+  background-image: url(/img/tower.png);
 }
 .tower::before {
   content: "";
